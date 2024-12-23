@@ -13,6 +13,7 @@
   .seccion{
     display: flex;
     height: 100vh;
+    margin-bottom: 19vh;
   }
   .izquierda{
     margin-left: -5vw;
@@ -21,7 +22,7 @@
     justify-content: space-evenly;
     background-color: #FFFFFF;
     width: 30vw;
-    height: 100vh;
+    height: 120vh;
   }
   .derecha{
     padding-top: 5vh;

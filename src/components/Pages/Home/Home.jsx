@@ -5,32 +5,41 @@ import { Footer } from '../../Footer/Footer';
 import './Home.css';
 import { TableInsumos } from '../../TableInsumos/TableInsumos';
 import { Welcometext } from '../../WelcomeText/Welcometext';
-
+import { InventoryBio } from '../../InventoryBio/InventoryBio';
 
 
 export const Home = () => {
-
-  const [showTable,setShowTable] = useState(false)
+  const [showTable, setShowTable] = useState(false);
+  const [showInventory, setShowInventory] = useState(false);
 
   const handleMostrarInsumos = () => {
     setShowTable(true);
+    setShowInventory(false); 
+  };
+
+  const handleMostrarInventario = () => {
+    setShowInventory(true);
+    setShowTable(false); 
   };
 
   return (
     <div className="home-container">
       <NavBar />
       <section className='seccion'>
-        
         <div className='izquierda'>
-          <SideBar onInsumoClick={handleMostrarInsumos}/>
+          <SideBar
+            onInsumoClick={handleMostrarInsumos}
+            onInventoryClick={handleMostrarInventario}
+          />
         </div>
         <div className="derecha">
-         {showTable?  <TableInsumos/>:<Welcometext/>}
-        
+          {showTable && <TableInsumos />}
+          {showInventory && <InventoryBio />}
+          {!showTable && !showInventory && <Welcometext />}
         </div>
       </section>
-      <Footer />
+    <Footer />
+   
     </div>
   );
 };
-

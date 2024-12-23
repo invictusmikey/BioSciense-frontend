@@ -8,7 +8,7 @@ body {
   display: flex;
   justify-content: space-between;
   align-items: center;
-  background-color: #0288D1; /* Azul oscuro */
+  background-color: #0288D1; 
   padding: 15px 30px;
   width: 95%; 
   height: 12vh;

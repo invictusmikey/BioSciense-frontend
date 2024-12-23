@@ -1,15 +1,9 @@
-
 import React, { useState } from 'react';
 import './SideBar.css';
-import {TableInsumos} from '../TableInsumos/TableInsumos'
-import { Home } from '../Pages/Home/Home';
 
-
-
-export const SideBar = ({ onInsumoClick}) => {
+export const SideBar = ({ onInsumoClick, onInventoryClick }) => {
   const [isInfraestructuraMenuOpen, setIsInfraestructuraMenuOpen] = useState(false);
   const [isBiomedicaMenuOpen, setIsBiomedicaMenuOpen] = useState(false);
-  const [showTable, setShowtable] = useState(false)
 
   const handleInfraestructuraMenuToggle = () => {
     setIsInfraestructuraMenuOpen(!isInfraestructuraMenuOpen);
@@ -18,10 +12,6 @@ export const SideBar = ({ onInsumoClick}) => {
   const handleBiomedicaMenuToggle = () => {
     setIsBiomedicaMenuOpen(!isBiomedicaMenuOpen);
   };
-
-  const handleShowTable = () => {
-    setShowtable(!showTable)
-  }
 
   return (
     <aside className="sidebar">
@@ -32,10 +22,8 @@ export const SideBar = ({ onInsumoClick}) => {
           {isInfraestructuraMenuOpen && (
             <ul className="dropdown">
               <li className='dropdowButtons'>
-                
                 <button onClick={onInsumoClick}>Insumo</button>
-          
-                <button>Datos</button>
+                <button>Inventario</button>
               </li>
             </ul>
           )}
@@ -45,8 +33,8 @@ export const SideBar = ({ onInsumoClick}) => {
           {isBiomedicaMenuOpen && (
             <ul className="dropdown">
               <li className='dropdowButtons'>
-                <button onClick={onInsumoClick}>Insumo</button>
-                <button>Datos</button>
+                <button>Insumo</button>
+                <button onClick={onInventoryClick}>Inventario</button>
               </li>
             </ul>
           )}
