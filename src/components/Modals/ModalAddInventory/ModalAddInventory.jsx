@@ -27,7 +27,7 @@ export const ModalAddInventory = ({ isOpen, closeModal, onAdd, initialData }) =>
                 return;
             }
 
-            const response = await fetch('http://localhost:3000/suppliesbRoutes', {
+            const response = await fetch('http://localhost:3000/inventorybRoutes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

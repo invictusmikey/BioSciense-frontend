@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SideBar.css';
 
-export const SideBar = ({ onInsumoClick, onInventoryClick }) => {
+export const SideBar = ({ onInsumoClick, onInventoryClick,  onSuppliesBClick}) => {
   const [isInfraestructuraMenuOpen, setIsInfraestructuraMenuOpen] = useState(false);
   const [isBiomedicaMenuOpen, setIsBiomedicaMenuOpen] = useState(false);
 
@@ -12,6 +12,7 @@ export const SideBar = ({ onInsumoClick, onInventoryClick }) => {
   const handleBiomedicaMenuToggle = () => {
     setIsBiomedicaMenuOpen(!isBiomedicaMenuOpen);
   };
+  
 
   return (
     <aside className="sidebar">
@@ -33,7 +34,7 @@ export const SideBar = ({ onInsumoClick, onInventoryClick }) => {
           {isBiomedicaMenuOpen && (
             <ul className="dropdown">
               <li className='dropdowButtons'>
-                <button>Insumo</button>
+                <button onClick={ onSuppliesBClick}>Insumo</button>
                 <button onClick={onInventoryClick}>Inventario</button>
               </li>
             </ul>

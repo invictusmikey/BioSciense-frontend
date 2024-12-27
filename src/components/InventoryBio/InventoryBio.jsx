@@ -1,9 +1,9 @@
 import React, { useEffect, useState } from 'react';
 import './InventoryBio.css';
-import { SearchBar } from '../SearchBar/SearchBar';
 import { ModalInventoryBio } from '../Modals/modalInvetoryBio/modalInventory';
 import { ModalAddInventory } from '../Modals/ModalAddInventory/ModalAddInventory';
 import { ReloadButton } from '../ReloadButton/ReloadButton';
+import { SearchBar } from '../Searchbar/SearchBar';
 
 export const InventoryBio = () => {
     const [supplies, setSupplies] = useState([]);

@@ -1,26 +1,25 @@
 import React, { useState, useEffect } from 'react';
-import './modalInventoryBio.css';
 
-export const ModalInventoryBio = ({ isOpen, closeModal, selectedSupply, onUpdate, onDelete }) => {
+export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, onDelete }) => {
   if (!isOpen) return null; 
 
   const [isEditing, setIsEditing] = useState(false);
   const [isDelete,setIsDeleting] = useState(false)
 
   const [edit, setEdit] = useState({
-    equipo: '',
-    serial: '',
-    modelo: '',
-    ubicacion: ''
+    Nombre: '',
+    Cantidad_incial: '',
+    Inventario_inicial: '',
+    Inventario_final: ''
   });
 
   useEffect(() => {
     if (selectedSupply) {
       setEdit({
-        equipo: selectedSupply.equipo,
-        serial: selectedSupply.serial,
-        modelo: selectedSupply.modelo,
-        ubicacion: selectedSupply.ubicacion,
+        Nombre: selectedSupply.Nombre,
+        Cantidad_incial: selectedSupply.Cantidad_incial,
+        Inventario_inicial: selectedSupply.Inventario_inicial,
+        Inventario_final: selectedSupply.Inventario_final,
       });
     }
   }, [selectedSupply]);
@@ -35,7 +34,7 @@ export const ModalInventoryBio = ({ isOpen, closeModal, selectedSupply, onUpdate
 
   const guardarCambios = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/inventorybRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`http://localhost:3000/suppliesbRoutes/${selectedSupply._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -56,7 +55,7 @@ export const ModalInventoryBio = ({ isOpen, closeModal, selectedSupply, onUpdate
   };
   const deleteSupplie = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/inventorybRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`http://localhost:3000/suppliesbRoutes/${selectedSupply._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -88,35 +87,35 @@ export const ModalInventoryBio = ({ isOpen, closeModal, selectedSupply, onUpdate
             <h1>
               <input 
                 type="text" 
-                name="equipo" 
-                value={edit.equipo} 
+                name="Nombre" 
+                value={edit.Nombre} 
                 onChange={manejarCambio} 
               />
             </h1>
             <p>
-              <strong>Serial:</strong>
+              <strong>Cantidad_incial:</strong>
               <input 
                 type="text" 
-                name="serial" 
-                value={edit.serial} 
+                name="Cantidad_incial" 
+                value={edit.Cantidad_incial} 
                 onChange={manejarCambio} 
               />
             </p>
             <p>
-              <strong>Modelo:</strong>
+              <strong>Inventario_inicial:</strong>
               <input 
                 type="text" 
-                name="modelo" 
-                value={edit.modelo} 
+                name="Inventario_inicial" 
+                value={edit.Inventario_inicial} 
                 onChange={manejarCambio} 
               />
             </p>
             <p>
-              <strong>Ubicación:</strong>
+              <strong>Inventario_final:</strong>
               <input 
                 type="text" 
-                name="ubicacion" 
-                value={edit.ubicacion} 
+                name="Inventario_final" 
+                value={edit.Inventario_final}
                 onChange={manejarCambio} 
               />
             </p>
@@ -124,11 +123,11 @@ export const ModalInventoryBio = ({ isOpen, closeModal, selectedSupply, onUpdate
           </>
         ) : (
           <>
-            <h1>{edit.equipo}</h1>
-            <p><strong>Serial:</strong> {edit.serial}</p>
-            <p><strong>Modelo:</strong> {edit.modelo}</p>
-            <p><strong>Ubicación:</strong> {edit.ubicacion}</p>
-            <p><strong>Fecha ultima actualizacion <br /></strong>{selectedSupply.updatedAt}</p>
+            <h1>{edit.Nombre}</h1>
+            <p><strong>Cantidad_incial:</strong> {edit.Cantidad_incial}</p>
+            <p><strong>Inventario_inicial:</strong> {edit.Inventario_inicial}</p>
+            <p><strong>Inventario_final: </strong> {edit.Inventario_final}</p>
+            <p><strong>Fecha ultima actualizacion <br/></strong>{selectedSupply.updatedAt}</p>
             <button className="buttonsCrud" onClick={() => setIsEditing(true)}>Editar</button>
           </>
         )}

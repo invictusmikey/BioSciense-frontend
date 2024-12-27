@@ -1,14 +1,13 @@
 import React, { useState } from 'react';
-import './modalAdd.css';
 
-export const ModalAddSupplie = ({ isOpen, closeModal, onAdd }) => {
+export const ModalAddSupplieb = ({ isOpen, closeModal, onAdd }) => {
     if (!isOpen) return null;
 
     const [formData, setFormData] = useState({
         Nombre: '',
-        Descripcion: '',
-        InventarioInicial: '',
-        Estado: ''
+        Cantidad_incial: '',
+        Inventario_inicial: '',
+        Inventario_final: ''
     });
 
   
@@ -20,7 +19,7 @@ export const ModalAddSupplie = ({ isOpen, closeModal, onAdd }) => {
   
     const addSupplie = async () => {
         try {
-            const response = await fetch('http://localhost:3000/suppliesiRoutes', {
+            const response = await fetch('http://localhost:3000/suppliesbRoutes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -46,34 +45,34 @@ export const ModalAddSupplie = ({ isOpen, closeModal, onAdd }) => {
             <h1>Agrega un Insumo/Herramienta</h1>
             <h2>Nombre</h2>
             <input
-                placeholder='Ingrese nombre de la herramienta'
+                placeholder='Ingrese nombre del insumo'
                 type="text"
                 name="Nombre"
                 value={formData.Nombre}  
                 onChange={handleChange}
             />
-            <h2>Descripción</h2>
+            <h2>cantidad inicial</h2>
             <input
-                placeholder='Ingrese la descripción del producto'
+                placeholder='Ingrese la cantidad actual'
                 type="text"
-                name="Descripcion"
-                value={formData.Descripcion}  
+                name="Cantidad_incial"
+                value={formData.Cantidad_incial}  
                 onChange={handleChange}
             />
             <h2>Inventario Inicial</h2>
             <input
-                placeholder='Ingrese la cantidad que hay en el stock'
+                placeholder='Ingrese la cantidad inicial que hay en el stock'
                 type="text"
-                name="InventarioInicial"
-                value={formData.InventarioInicial}  
+                name="Inventario_inicial"
+                value={formData.Inventario_inicial }  
                 onChange={handleChange}
             />
-            <h2>Estado</h2>
+            <h2>Inventario final</h2>
             <input
-                placeholder='Ingrese el estado en el que se encuentra'
+                placeholder='Ingrese la cantidad final que hay en stock'
                 type="text"
-                name="Estado"
-                value={formData.Estado}  
+                name="Inventario_final"
+                value={formData.Inventario_final}  
                 onChange={handleChange}
             />
             <button onClick={addSupplie}>Agregar</button>

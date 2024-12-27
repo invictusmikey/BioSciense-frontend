@@ -1,9 +1,10 @@
 import React, { useState, useEffect } from 'react';
 import './TableInsumos.css';
-import { SearchBar } from "../SearchBar/SearchBar";
 import { ModalInfra } from '../Modals/ModalInfra/ModalInfra';
-import { ModalAddSupplie } from '../Modals/modalAddSupplie/modalAddSupplie';
 import { ReloadButton } from '../ReloadButton/ReloadButton';
+import { SearchBar } from '../Searchbar/SearchBar';
+import { ModalAddSupplie } from '../Modals/ModalAddSupplie/ModalAddSupplie';
+
 
 export const TableInsumos = () => {
     const [supplies, setSupplies] = useState([]);
@@ -119,7 +120,7 @@ export const TableInsumos = () => {
                             <tr key={supply._id}> 
                                 <td>{supply.Nombre || 'Sin nombre'}</td>
                                 <td>{supply.Descripcion || 'Sin descripción'}</td>
-                                <td>{supply.InventarioInicial || 'N/A'}</td>
+                                <td>{supply.InventarioInicial }</td>
                                 <td>{supply.Estado || 'Desconocido'}</td>
                                 <td>
                                     <button onClick={() => openModalInfra(supply)}>Ver insumo</button>

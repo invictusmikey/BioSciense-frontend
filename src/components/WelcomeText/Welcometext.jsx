@@ -1,4 +1,3 @@
-import React from 'react'
 import './WelcomeText.css'
 import Biomedica from '../../assets/Biomedica.jpg'
 import img2 from '../../assets/img2.jpg'
