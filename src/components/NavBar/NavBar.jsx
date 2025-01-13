@@ -4,13 +4,15 @@ import Logo from '../../assets/Logo.png'
 import './NavBar.css'
 
 export const NavBar = () => {
+
+
   return (
     <div className="navbar-container">
         <a href="../Pages/Home/Home"><img src={Logo} alt="" /></a>
         <ul className="navbar-items">
-          <Items>Equipos</Items>
-          <Items>Pag 2</Items>
-          <Items>Pag 3</Items>
+          <Items >------</Items>
+          <Items>-----</Items>
+          <Items url="https://www.edibon.com/es/ingenieria-biomedica/equipamiento-biomedico">Equipos</Items>
         </ul>
     </div>
   )

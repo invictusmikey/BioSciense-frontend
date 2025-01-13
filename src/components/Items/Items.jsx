@@ -1,10 +1,17 @@
-import React from 'react'
-import './items.css'
+import './items.css';
 
-export const Items = ({children}) => {
+export const Items = ({ children, url }) => {
+
+
   return (
     <li>
-      <a href="">{children}</a>
+      <a 
+        href={url}
+        target='_blank' 
+        rel='noopener noreferrer' 
+      >
+        {children}
+      </a>
     </li>
-  )
-}
+  );
+};

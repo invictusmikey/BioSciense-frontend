@@ -26,25 +26,25 @@ h1 {
   background-color: #0288D1;
   color: white;
   border: none;
-  padding: 12px 24px; /* Aumentado para mejor experiencia táctil */
+  padding: 12px 24px; 
   margin: 0 10px;
   border-radius: 5px;
   cursor: pointer;
-  transition: background-color 0.3s ease, transform 0.2s; /* Agregada animación al hacer clic */
+  transition: background-color 0.3s ease, transform 0.2s; 
   font-size: 16px;
-  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); /* Añadido sombra para profundidad */
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.2); 
 }
 
 .buttonsCrud:hover {
   background-color: #4f49e1;
-  transform: translateY(-2px); /* Efecto de elevación al pasar el ratón */
+  transform: translateY(-2px); 
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 20px;
-  table-layout: fixed; /* Forzar el diseño de la tabla */
+  table-layout: fixed; 
 }
 
 table th, table td {
@@ -52,9 +52,9 @@ table th, table td {
   text-align: left;
   border-bottom: 1px solid #ddd;
   font-size: 16px;
-  overflow: hidden; /* Oculta contenido desbordante */
-  text-overflow: ellipsis; /* Agrega puntos suspensivos para contenido largo */
-  white-space: nowrap; /* Evita el salto de línea en las celdas */
+  overflow: hidden; 
+  text-overflow: ellipsis; 
+  white-space: nowrap; 
 }
 
 table th {

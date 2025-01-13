@@ -133,7 +133,7 @@ export const ModalInfra = ({ isOpen, closeModal, selectedSupply, onUpdate , onDe
             <p><strong>Descripción:</strong> {edit.Descripcion}</p>
             <p><strong>Estado:</strong> {edit.Estado}</p>
             <p><strong>Inventario Inicial:</strong> {edit.InventarioInicial}</p>
-            <p><strong>Última fecha de actualización:</strong> <br /> {selectedSupply.updatedAt}</p>
+            <p><strong>Última fecha de cambio en el inventario :</strong> <br /> {selectedSupply.updatedAt}</p>
             <button className="buttonsCrud" onClick={() => setIsEditing(true)}>Editar</button>
           </>
         )}

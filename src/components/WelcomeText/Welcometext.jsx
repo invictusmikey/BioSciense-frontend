@@ -1,6 +1,6 @@
 import './WelcomeText.css'
-import Biomedica from '../../assets/Biomedica.jpg'
-import img2 from '../../assets/img2.jpg'
+import infraBio from '../../assets/infraBio.jpg'
+
 export const Welcometext = () => {
     return (
         <div className="wText">
@@ -11,11 +11,7 @@ export const Welcometext = () => {
            
             <div className="containerLinks">
                 <div className="row">
-                    <a href="#"><img src={Biomedica} alt="Biomedica" /></a>
-                    <a href="#"><img src={img2} alt="Biomedica" /></a>
-                </div>
-                <div className="row">
-                    <a href="#"><img src={Biomedica} alt="Biomedica" /></a>
+                    <a ><img src={infraBio} alt="Equipos de biomedica" /></a>
                     
                 </div>
                

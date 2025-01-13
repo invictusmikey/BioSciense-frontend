@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './InventoryBio.css';
-import { ModalInventoryBio } from '../Modals/modalInvetoryBio/modalInventory';
+import { ModalInventoryBio } from '../Modals/ModalInvetoryBio/modalInventory';
 import { ModalAddInventory } from '../Modals/ModalAddInventory/ModalAddInventory';
 import { ReloadButton } from '../ReloadButton/ReloadButton';
 import { SearchBar } from '../Searchbar/SearchBar';
@@ -73,6 +73,7 @@ export const InventoryBio = () => {
         setSelectedSupply(supply);
         setIsOpen(true);
     };
+ 
 
     const closeModal = () => {
         setIsOpen(false);
@@ -99,7 +100,6 @@ export const InventoryBio = () => {
 
     return (
         <div>
-            <h1>Inventario de Biomedica</h1>
 
             <div className="TableInventory">
                 <h1>Equipos de Biomedicina<br /></h1>
@@ -176,6 +176,8 @@ export const InventoryBio = () => {
                 onUpdate={onUpdate} 
                
             />
+
+
         </div>
     );
 };

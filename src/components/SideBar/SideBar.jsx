@@ -1,7 +1,7 @@
 import React, { useState } from 'react';
 import './SideBar.css';
 
-export const SideBar = ({ onInsumoClick, onInventoryClick,  onSuppliesBClick}) => {
+export const SideBar = ({ onInsumoClick, onInventoryClick,  onSuppliesBClick ,onToolsClick}) => {
   const [isInfraestructuraMenuOpen, setIsInfraestructuraMenuOpen] = useState(false);
   const [isBiomedicaMenuOpen, setIsBiomedicaMenuOpen] = useState(false);
 
@@ -24,7 +24,7 @@ export const SideBar = ({ onInsumoClick, onInventoryClick,  onSuppliesBClick}) =
             <ul className="dropdown">
               <li className='dropdowButtons'>
                 <button onClick={onInsumoClick}>Insumo</button>
-                <button>Inventario</button>
+                <button onClick={onToolsClick}>Inventario</button>
               </li>
             </ul>
           )}
@@ -34,7 +34,7 @@ export const SideBar = ({ onInsumoClick, onInventoryClick,  onSuppliesBClick}) =
           {isBiomedicaMenuOpen && (
             <ul className="dropdown">
               <li className='dropdowButtons'>
-                <button onClick={ onSuppliesBClick}>Insumo</button>
+                <button onClick={onSuppliesBClick}>Insumo</button>
                 <button onClick={onInventoryClick}>Inventario</button>
               </li>
             </ul>
