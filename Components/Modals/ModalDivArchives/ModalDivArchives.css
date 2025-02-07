@@ -1,0 +1,21 @@
+.modal-archives{
+    display: flex;
+    background-color: #fff;
+    border-radius: 10px;
+    padding: 20px;
+    width: 400px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.3);
+    text-align: center;
+    position: relative;
+    left: 10vw;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+.modal-content-archives{
+    border: solid 1px #000;
+    width: 60vh;
+    box-shadow: #000 0px 0px 10px;
+    height: 60vh;
+    
+}
