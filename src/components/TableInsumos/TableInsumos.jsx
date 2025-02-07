@@ -21,7 +21,7 @@ export const TableInsumos = () => {
 
     const fetchSupplies = async () => {
         try {
-            const response = await fetch('http://localhost:3000/suppliesiRoutes');
+            const response = await fetch('https://biosciense-backend.onrender.com/suppliesiRoutes');
             if (!response.ok) {
                 throw new Error('Error al obtener los insumos');
             }
@@ -92,11 +92,13 @@ export const TableInsumos = () => {
     }
 
     const onAdd = (addedSupply) => {
-        setSupplies((prevSupplies) => [...prevSupplies, addedSupply]); 
+        setSupplies((prevSupplies) => [...prevSupplies, addedSupply]);
+        fetchSupplies(); 
     };
 
     const refreshTable = () => {
         fetchSupplies()
+        
     }
     return (
         <div className='TableInsumos'>

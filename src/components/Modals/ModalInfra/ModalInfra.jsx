@@ -36,7 +36,7 @@ export const ModalInfra = ({ isOpen, closeModal, selectedSupply, onUpdate , onDe
 
   const guardarCambios = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/suppliesiRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`https://biosciense-backend.onrender.com/suppliesiRoutes/${selectedSupply._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -58,7 +58,7 @@ export const ModalInfra = ({ isOpen, closeModal, selectedSupply, onUpdate , onDe
 
   const deleteSupplie = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/suppliesiRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`https://biosciense-backend.onrender.com/suppliesiRoutes/${selectedSupply._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',

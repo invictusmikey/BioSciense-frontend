@@ -18,7 +18,7 @@ export const ModalAddTools = ({ isOpen, closeModal, onAdd }) => {
   
     const addSupplie = async () => {
         try {
-            const response = await fetch('http://localhost:3000/inventoryiRoutes', {
+            const response = await fetch('https://biosciense-backend.onrender.com/inventoryiRoutes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -39,7 +39,7 @@ export const ModalAddTools = ({ isOpen, closeModal, onAdd }) => {
     };
 
     return (
-        <div className="modalAdd">
+        <div className="modalAdd" key={formData.id}>
             <button className='close' onClick={closeModal}>X</button>
             <h1>Agrega un Insumo/Herramienta</h1>
             <h2>Nombre de herramienta</h2>

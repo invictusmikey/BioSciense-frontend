@@ -20,7 +20,7 @@ export const ModalAddSupplie = ({ isOpen, closeModal, onAdd }) => {
   
     const addSupplie = async () => {
         try {
-            const response = await fetch('http://localhost:3000/suppliesiRoutes', {
+            const response = await fetch('https://biosciense-backend.onrender.com/suppliesiRoutes/', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -63,7 +63,7 @@ export const ModalAddSupplie = ({ isOpen, closeModal, onAdd }) => {
             <h2>Inventario Inicial</h2>
             <input
                 placeholder='Ingrese la cantidad que hay en el stock'
-                type="text"
+                type="number"
                 name="InventarioInicial"
                 value={formData.InventarioInicial}  
                 onChange={handleChange}

@@ -19,7 +19,7 @@ export const TableInventoryI = () => {
 
     const fetchSupplies = async () => {
         try {
-            const response = await fetch('http://localhost:3000/inventoryiRoutes');
+            const response = await fetch('https://biosciense-backend.onrender.com/inventoryiRoutes');
             if (!response.ok) {
                 throw new Error('Error al obtener las herramientas');
             }
@@ -95,7 +95,7 @@ export const TableInventoryI = () => {
 
     return (
         <div className='TableInsumos'>
-            <h1>Esta es la tabla de los insumos de Biomedica</h1>
+            <h1>Esta es la tabla del inventario de infraestructura</h1>
             <SearchBar onSearch={setSearchTerm} />
             <div className='containerButtons'>
                 <button className='buttonsCrud' onClick={openModalAddTools}>Agregar</button>

@@ -5,9 +5,9 @@ export const ModalAddSupplieb = ({ isOpen, closeModal, onAdd }) => {
 
     const [formData, setFormData] = useState({
         Nombre: '',
-        Cantidad_incial: '',
-        Inventario_inicial: '',
-        Inventario_final: ''
+        cantidad_utilizada: '',
+        inventario_inicial: '',
+        inventario_final: ''
     });
 
   
@@ -19,7 +19,7 @@ export const ModalAddSupplieb = ({ isOpen, closeModal, onAdd }) => {
   
     const addSupplie = async () => {
         try {
-            const response = await fetch('http://localhost:3000/suppliesbRoutes', {
+            const response = await fetch('https://biosciense-backend.onrender.com/suppliesbRoutes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',
@@ -43,7 +43,7 @@ export const ModalAddSupplieb = ({ isOpen, closeModal, onAdd }) => {
         <div className="modalAdd">
             <button className='close' onClick={closeModal}>X</button>
             <h1>Agrega un Insumo/Herramienta</h1>
-            <h2>Nombre</h2>
+            <h2>nombre</h2>
             <input
                 placeholder='Ingrese nombre del insumo'
                 type="text"
@@ -55,24 +55,24 @@ export const ModalAddSupplieb = ({ isOpen, closeModal, onAdd }) => {
             <input
                 placeholder='Ingrese la cantidad actual'
                 type="text"
-                name="Cantidad_incial"
-                value={formData.Cantidad_incial}  
+                name="cantidad_utilizada"
+                value={formData.cantidad_utilizada}  
                 onChange={handleChange}
             />
             <h2>Inventario Inicial</h2>
             <input
                 placeholder='Ingrese la cantidad inicial que hay en el stock'
                 type="text"
-                name="Inventario_inicial"
-                value={formData.Inventario_inicial }  
+                name="inventario_inicial"
+                value={formData.inventario_inicial }  
                 onChange={handleChange}
             />
             <h2>Inventario final</h2>
             <input
                 placeholder='Ingrese la cantidad final que hay en stock'
                 type="text"
-                name="Inventario_final"
-                value={formData.Inventario_final}  
+                name="inventario_final"
+                value={formData.inventario_final}  
                 onChange={handleChange}
             />
             <button onClick={addSupplie}>Agregar</button>

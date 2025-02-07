@@ -13,18 +13,24 @@ export const TableSuppliesB = () => {
     const [isOpenBios, setIsOpenBios] = useState(false); 
     const [isOpenAdd, setIsOpenAdd] = useState(false); 
     const [selectedSupply, setSelectedSupply] = useState(null);
-    const [newSupply, setNewSupply] = useState({ Nombre: '', CantidadInicial: '', InventarioInicial: '', InventarioFinal: '' });
+    const [newSupply, setNewSupply] = useState({ Nombre: '', cantidadInicial: '', inventarioInicial: '', inventarioFinal: '' });
 
     const suppliesPerPage = 5;
 
     const fetchSupplies = async () => {
         try {
-            const response = await fetch('http://localhost:3000/suppliesbRoutes');
-            if (!response.ok) {
-                throw new Error('Error al obtener los insumos');
-            }
+            const response = await fetch('https://biosciense-backend.onrender.com/suppliesbRoutes',{
+                method: 'GET',
+                headers:{
+                    'Content-Type': 'application/json',
+                }
+            });
             const data = await response.json();
-            setSupplies(data);
+            if (Array.isArray(data)) {
+                setSupplies(data);
+            } else {
+                console.error('La respuesta no es un array:', data);
+            }
         } catch (error) {
             console.error('Error al obtener los insumos:', error);
         }
@@ -70,7 +76,7 @@ export const TableSuppliesB = () => {
 
     const closeModalAdd = () => {
         setIsOpenAdd(false);
-        setNewSupply({ _id: '', Nombre: '', CantidadInicial: '', InventarioInicial: '', InventarioFinal: '' });
+        setNewSupply({ _id: '', Nombre: '', cantidad_incial: '', inventario_inicial: '',inventario_final: '' });
     };
 
     const onUpdate = (updatedSupply) => {
@@ -115,10 +121,10 @@ export const TableSuppliesB = () => {
                     {currentSupplies.length > 0 ? (
                         currentSupplies.map((supply) => (
                             <tr key={supply._id}> 
-                                <td>{supply.Nombre || 'Sin nombre'}</td>
-                                <td>{supply.Cantidad_incial || '0'}</td>
-                                <td>{supply.Inventario_inicial || '0'}</td>
-                                <td>{supply.Inventario_final || '0'}</td>
+                                <td>{supply.Nombre || 'Sin Nombre'}</td>
+                                <td>{supply.cantidad_utilizada|| '0'}</td>
+                                <td>{supply.inventario_inicial || '0'}</td>
+                                <td>{supply.inventario_final || '0'}</td>
                                 <td>
                                     <button onClick={() => openModalSbio(supply)}>Ver insumo</button>
                                 </td>

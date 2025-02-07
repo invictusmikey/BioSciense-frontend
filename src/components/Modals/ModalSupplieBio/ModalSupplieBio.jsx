@@ -8,18 +8,18 @@ export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, 
 
   const [edit, setEdit] = useState({
     Nombre: '',
-    Cantidad_incial: '',
-    Inventario_inicial: '',
-    Inventario_final: ''
+    cantidad_utilizada: '',
+    inventario_inicial: '',
+    inventario_final: ''
   });
 
   useEffect(() => {
     if (selectedSupply) {
       setEdit({
         Nombre: selectedSupply.Nombre,
-        Cantidad_incial: selectedSupply.Cantidad_incial,
-        Inventario_inicial: selectedSupply.Inventario_inicial,
-        Inventario_final: selectedSupply.Inventario_final,
+        cantidad_utilizada: selectedSupply.cantidad_utilizada,
+        inventario_inicial: selectedSupply.inventario_inicial,
+        inventario_final: selectedSupply.inventario_final,
       });
     }
   }, [selectedSupply]);
@@ -34,7 +34,7 @@ export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, 
 
   const guardarCambios = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/suppliesbRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`https://biosciense-backend.onrender.com/suppliesbRoutes/${selectedSupply._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, 
   };
   const deleteSupplie = async () => {
     try {
-      const response = await fetch(`http://localhost:3000/suppliesbRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`https://biosciense-backend.onrender.com/suppliesbRoutes/${selectedSupply._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
@@ -93,29 +93,29 @@ export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, 
               />
             </h1>
             <p>
-              <strong>Cantidad_incial:</strong>
+              <strong>cantidad_utilizada:</strong>
               <input 
                 type="text" 
-                name="Cantidad_incial" 
-                value={edit.Cantidad_incial} 
+                name="cantidad_utilizada" 
+                value={edit.cantidad_utilizada} 
                 onChange={manejarCambio} 
               />
             </p>
             <p>
-              <strong>Inventario_inicial:</strong>
+              <strong>inventario_inicial:</strong>
               <input 
                 type="text" 
-                name="Inventario_inicial" 
-                value={edit.Inventario_inicial} 
+                name="inventario_inicial" 
+                value={edit.inventario_inicial} 
                 onChange={manejarCambio} 
               />
             </p>
             <p>
-              <strong>Inventario_final:</strong>
+              <strong>inventario_final:</strong>
               <input 
                 type="text" 
-                name="Inventario_final" 
-                value={edit.Inventario_final}
+                name="inventario_final" 
+                value={edit.inventario_final}
                 onChange={manejarCambio} 
               />
             </p>
@@ -124,9 +124,9 @@ export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, 
         ) : (
           <>
             <h1>{edit.Nombre}</h1>
-            <p><strong>Cantidad_incial:</strong> {edit.Cantidad_incial}</p>
-            <p><strong>Inventario_inicial:</strong> {edit.Inventario_inicial}</p>
-            <p><strong>Inventario_final: </strong> {edit.Inventario_final}</p>
+            <p><strong>cantidad_utilizada:</strong> {edit.cantidad_utilizada}</p>
+            <p><strong>inventario_inicial:</strong> {edit.inventario_inicial}</p>
+            <p><strong>inventario_final: </strong> {edit.inventario_final}</p>
             <p><strong>Fecha ultima actualizacion <br/></strong>{selectedSupply.updatedAt}</p>
             <button className="buttonsCrud" onClick={() => setIsEditing(true)}>Editar</button>
           </>
