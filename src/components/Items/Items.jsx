@@ -1,4 +1,4 @@
-import './items.css';
+import './Items.css';
 
 export const Items = ({ children, url }) => {
 
