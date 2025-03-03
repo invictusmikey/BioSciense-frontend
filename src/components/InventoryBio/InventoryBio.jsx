@@ -18,7 +18,7 @@ export const InventoryBio = () => {
 
     const fetchSupplies = async () => {
         try {
-            const response = await fetch('https://biosciense-backend.onrender.com/inventorybRoutes/',{
+            const response = await fetch('http://localhost:3000/inventorybRoutes/',{
                 method: 'GET',
                 headers:{
                     'Content-Type': 'application/json',

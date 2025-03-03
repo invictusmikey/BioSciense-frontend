@@ -19,7 +19,7 @@ export const TableSuppliesB = () => {
 
     const fetchSupplies = async () => {
         try {
-            const response = await fetch('https://biosciense-backend.onrender.com/suppliesbRoutes',{
+            const response = await fetch('http://localhost:3000/suppliesbRoutes',{
                 method: 'GET',
                 headers:{
                     'Content-Type': 'application/json',

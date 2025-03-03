@@ -18,7 +18,7 @@ export const ModalAddTools = ({ isOpen, closeModal, onAdd }) => {
   
     const addSupplie = async () => {
         try {
-            const response = await fetch('https://biosciense-backend.onrender.com/inventoryiRoutes', {
+            const response = await fetch('http://localhost:3000/inventoryiRoutes', {
                 method: 'POST',
                 headers: {
                     'Content-Type': 'application/json',

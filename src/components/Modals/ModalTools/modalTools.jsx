@@ -30,7 +30,7 @@ export const ModalTools = ({ isOpen, closeModal, selectedSupply, onUpdate, onDel
 
     const guardarCambios = async () => {
         try {
-            const response = await fetch(`https://biosciense-backend.onrender.com/inventoryiRoutes/${selectedSupply._id}`, {
+            const response = await fetch(`http://localhost:3000/inventoryiRoutes/${selectedSupply._id}`, {
                 method: 'PUT',
                 headers: {
                     'Content-Type': 'application/json',
@@ -51,7 +51,7 @@ export const ModalTools = ({ isOpen, closeModal, selectedSupply, onUpdate, onDel
     };
     const deleteSupplie = async () => {
         try {
-            const response = await fetch(`https://biosciense-backend.onrender.com/inventoryiRoutes/${selectedSupply._id}`, {
+            const response = await fetch(`http://localhost:3000/inventoryiRoutes/${selectedSupply._id}`, {
                 method: 'DELETE',
                 headers: {
                     'Content-Type': 'application/json',

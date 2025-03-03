@@ -34,7 +34,7 @@ export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, 
 
   const guardarCambios = async () => {
     try {
-      const response = await fetch(`https://biosciense-backend.onrender.com/suppliesbRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`http://localhost:3000/suppliesbRoutes/${selectedSupply._id}`, {
         method: 'PUT',
         headers: {
           'Content-Type': 'application/json',
@@ -55,7 +55,7 @@ export const ModalSupplieBio = ({ isOpen, closeModal, selectedSupply, onUpdate, 
   };
   const deleteSupplie = async () => {
     try {
-      const response = await fetch(`https://biosciense-backend.onrender.com/suppliesbRoutes/${selectedSupply._id}`, {
+      const response = await fetch(`http://localhost:3000/suppliesbRoutes/${selectedSupply._id}`, {
         method: 'DELETE',
         headers: {
           'Content-Type': 'application/json',
