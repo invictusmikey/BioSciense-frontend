@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import './InventoryBio.css';
-import { ModalInventoryBio } from '../Modals/ModalInvetoryBio/modalInventory';
+import { ModalInventoryBio } from '../Modals/ModalInvetoryBio/modalInventoryBio';
 import { ModalAddInventory } from '../Modals/ModalAddInventory/ModalAddInventory';
 import { ReloadButton } from '../ReloadButton/ReloadButton';
 import { SearchBar } from '../Searchbar/SearchBar';
