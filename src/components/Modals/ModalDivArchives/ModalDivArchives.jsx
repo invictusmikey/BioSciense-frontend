@@ -1,35 +1,57 @@
-import React from 'react';
+import { useState, useEffect } from 'react';
 import './ModalDivArchives.css';
-import { use } from 'react';
 
-export const DivArchives = ({ isOpen, onClose , id}) => {
+export const ModalDivArchives = ({ onClose }) => {
+  const [files, setFiles] = useState([]);
+  const [error, setError] = useState('');
 
-  const [archives,setArchives ] = useState([]);
+  useEffect(() => {
+    fetch("http://localhost:3000/directorysRoutes", {
+      method: "GET",
+    })
+      .then((response) => {
+        if (!response.ok) throw new Error("Error al obtener archivos");
+        return response.json();
+      })
+      .then((data) => {
+        console.log("Respuesta API:", data);
+        setFiles(Array.isArray(data.directory) ? data.directory : []);
+      })
+      .catch((err) => setError(err.message));
+  }, []);
 
-  const fetchinArchives  = async () => {
-    try {
-      const archivos = await fetch(`http://localhost:3000/archiveRoutes/traer-archivo/${id}`);
-      const data = await archivos.json();
-      setArchives(data);
+  const truncateFileName = (name, maxLength = 7) => {
+    return name.length > maxLength ? `${name.substring(0, maxLength)}...` : name;
+  };
 
-    } catch (error) {
-      
-      console.log('Error al obtener los archivos:', error);
-      
-    }
-
-  }
+  const openFileInNewTab = (file) => {
+    const fileUrl = `http://localhost:3000/directorysRoutes/${file}`;
+    window.open(fileUrl, "_blank");
+  };
 
   return (
-    <div className='modal-archives'>
-      <div className='modal-content-archives'>
-        <button onClick={onClose}>X</button>
-
-        <h1>Archivos</h1>
-        <ul>
-        
+    <div className="modal-archives">
+      <button className="closeButton" onClick={onClose}>X</button>
+      <div className="modal-content-archives">
+        <h2>Lista de archivos 📂</h2>
+        {error && <p style={{ color: "red" }}>{error}</p>}
+        <ul className="list-archives">
+          {files.length > 0 ? (
+            files.map((file, index) => (
+              <li 
+                key={index} 
+                className="list-interna" 
+                title={file}
+                onClick={() => openFileInNewTab(file)}
+              >
+                {truncateFileName(file)}
+              </li>
+            ))
+          ) : (
+            <p>No hay archivos disponibles</p>
+          )}
         </ul>
       </div>
     </div>
-  )
-}
+  );
+};

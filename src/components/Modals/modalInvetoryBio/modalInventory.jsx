@@ -1,6 +1,6 @@
 import React, { useState, useEffect } from 'react';
 import './modalInventoryBio.css';
-import { ModalChecklist } from '../ModalChecklist/ModalChecklist';
+import { ModalCheckList } from '../ModalCheckList/ModalChecklist';
 
 export const ModalInventoryBio = ({ isOpen, closeModal, selectedSupply, onUpdate, onDelete }) => {
   const [isEditing, setIsEditing] = useState(false);
@@ -111,7 +111,7 @@ export const ModalInventoryBio = ({ isOpen, closeModal, selectedSupply, onUpdate
       )}
 
       {isOpenList && (
-        <ModalChecklist
+        <ModalCheckList
           id={selectedSupply._id}
           isOpen={isOpenList}
           isClose={() => setIsOpList(false)}
