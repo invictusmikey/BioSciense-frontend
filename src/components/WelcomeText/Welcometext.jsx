@@ -1,4 +1,4 @@
-import './WelcomeText.css'
+import './Welcometext.css'
 import infraBio from '../../assets/infraBio.jpg'
 
 export const Welcometext = () => {
